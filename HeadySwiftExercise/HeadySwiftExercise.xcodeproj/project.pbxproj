@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D4CCD05BA2D29A00AE9707C /* Pods_HeadySwiftExercise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 340D8137CB6536C414041243 /* Pods_HeadySwiftExercise.framework */; };
 		748275EC229E5DF00040CACD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748275EB229E5DF00040CACD /* AppDelegate.swift */; };
 		748275EE229E5DF00040CACD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748275ED229E5DF00040CACD /* ViewController.swift */; };
 		748275F1229E5DF00040CACD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 748275EF229E5DF00040CACD /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		340D8137CB6536C414041243 /* Pods_HeadySwiftExercise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeadySwiftExercise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		748275E8229E5DF00040CACD /* HeadySwiftExercise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeadySwiftExercise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		748275EB229E5DF00040CACD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		748275ED229E5DF00040CACD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +24,8 @@
 		748275F2229E5DF80040CACD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		748275F5229E5DF80040CACD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		748275F7229E5DF90040CACD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A124DECE67EB861CD21E3992 /* Pods-HeadySwiftExercise.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeadySwiftExercise.release.xcconfig"; path = "Target Support Files/Pods-HeadySwiftExercise/Pods-HeadySwiftExercise.release.xcconfig"; sourceTree = "<group>"; };
+		E4CAD346E455C2517F6F48D2 /* Pods-HeadySwiftExercise.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeadySwiftExercise.debug.xcconfig"; path = "Target Support Files/Pods-HeadySwiftExercise/Pods-HeadySwiftExercise.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D4CCD05BA2D29A00AE9707C /* Pods_HeadySwiftExercise.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E032D695B65CC79BB2B9199 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E4CAD346E455C2517F6F48D2 /* Pods-HeadySwiftExercise.debug.xcconfig */,
+				A124DECE67EB861CD21E3992 /* Pods-HeadySwiftExercise.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		748275DF229E5DF00040CACD = {
 			isa = PBXGroup;
 			children = (
 				748275EA229E5DF00040CACD /* HeadySwiftExercise */,
 				748275E9229E5DF00040CACD /* Products */,
+				6E032D695B65CC79BB2B9199 /* Pods */,
+				BD7D7500655FD33CAAD73F9B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +81,14 @@
 			path = HeadySwiftExercise;
 			sourceTree = "<group>";
 		};
+		BD7D7500655FD33CAAD73F9B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				340D8137CB6536C414041243 /* Pods_HeadySwiftExercise.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +96,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 748275FA229E5DF90040CACD /* Build configuration list for PBXNativeTarget "HeadySwiftExercise" */;
 			buildPhases = (
+				0BB5D304FE40475E172A8E89 /* [CP] Check Pods Manifest.lock */,
 				748275E4229E5DF00040CACD /* Sources */,
 				748275E5229E5DF00040CACD /* Frameworks */,
 				748275E6229E5DF00040CACD /* Resources */,
+				B1A1A1D53D547DD6FF9CD313 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +156,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0BB5D304FE40475E172A8E89 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HeadySwiftExercise-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B1A1A1D53D547DD6FF9CD313 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HeadySwiftExercise/Pods-HeadySwiftExercise-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HeadySwiftExercise/Pods-HeadySwiftExercise-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		748275E4229E5DF00040CACD /* Sources */ = {
@@ -280,6 +354,7 @@
 		};
 		748275FB229E5DF90040CACD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4CAD346E455C2517F6F48D2 /* Pods-HeadySwiftExercise.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -297,6 +372,7 @@
 		};
 		748275FC229E5DF90040CACD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A124DECE67EB861CD21E3992 /* Pods-HeadySwiftExercise.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
