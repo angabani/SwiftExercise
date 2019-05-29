@@ -9,21 +9,33 @@
 /* Begin PBXBuildFile section */
 		4D4CCD05BA2D29A00AE9707C /* Pods_HeadySwiftExercise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 340D8137CB6536C414041243 /* Pods_HeadySwiftExercise.framework */; };
 		748275EC229E5DF00040CACD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748275EB229E5DF00040CACD /* AppDelegate.swift */; };
-		748275EE229E5DF00040CACD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748275ED229E5DF00040CACD /* ViewController.swift */; };
 		748275F1229E5DF00040CACD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 748275EF229E5DF00040CACD /* Main.storyboard */; };
 		748275F3229E5DF80040CACD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 748275F2229E5DF80040CACD /* Assets.xcassets */; };
 		748275F6229E5DF80040CACD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 748275F4229E5DF80040CACD /* LaunchScreen.storyboard */; };
+		748ABFD4229E89A200F16E14 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748ABFD3229E89A200F16E14 /* ViewController.swift */; };
+		748ABFD6229E8BB100F16E14 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748ABFD5229E8BB100F16E14 /* NetworkManager.swift */; };
+		748ABFD8229E8CC200F16E14 /* AGUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748ABFD7229E8CC200F16E14 /* AGUtil.swift */; };
+		748ABFDA229E8D7700F16E14 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748ABFD9229E8D7700F16E14 /* Category.swift */; };
+		748ABFDC229E962B00F16E14 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748ABFDB229E962B00F16E14 /* Product.swift */; };
+		748ABFDE229E969700F16E14 /* Tax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748ABFDD229E969700F16E14 /* Tax.swift */; };
+		748ABFE0229E96FD00F16E14 /* Variant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748ABFDF229E96FD00F16E14 /* Variant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		340D8137CB6536C414041243 /* Pods_HeadySwiftExercise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeadySwiftExercise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		748275E8229E5DF00040CACD /* HeadySwiftExercise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeadySwiftExercise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		748275EB229E5DF00040CACD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		748275ED229E5DF00040CACD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		748275F0229E5DF00040CACD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		748275F2229E5DF80040CACD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		748275F5229E5DF80040CACD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		748275F7229E5DF90040CACD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		748ABFD3229E89A200F16E14 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		748ABFD5229E8BB100F16E14 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		748ABFD7229E8CC200F16E14 /* AGUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGUtil.swift; sourceTree = "<group>"; };
+		748ABFD9229E8D7700F16E14 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		748ABFDB229E962B00F16E14 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		748ABFDD229E969700F16E14 /* Tax.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tax.swift; sourceTree = "<group>"; };
+		748ABFDF229E96FD00F16E14 /* Variant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Variant.swift; sourceTree = "<group>"; };
 		A124DECE67EB861CD21E3992 /* Pods-HeadySwiftExercise.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeadySwiftExercise.release.xcconfig"; path = "Target Support Files/Pods-HeadySwiftExercise/Pods-HeadySwiftExercise.release.xcconfig"; sourceTree = "<group>"; };
 		E4CAD346E455C2517F6F48D2 /* Pods-HeadySwiftExercise.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeadySwiftExercise.debug.xcconfig"; path = "Target Support Files/Pods-HeadySwiftExercise/Pods-HeadySwiftExercise.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -46,7 +58,6 @@
 				E4CAD346E455C2517F6F48D2 /* Pods-HeadySwiftExercise.debug.xcconfig */,
 				A124DECE67EB861CD21E3992 /* Pods-HeadySwiftExercise.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -71,14 +82,52 @@
 		748275EA229E5DF00040CACD /* HeadySwiftExercise */ = {
 			isa = PBXGroup;
 			children = (
+				748ABFD0229E89A200F16E14 /* Managers */,
+				748ABFCF229E89A200F16E14 /* Models */,
+				748ABFD1229E89A200F16E14 /* Utilities */,
+				748ABFD2229E89A200F16E14 /* ViewControllers */,
 				748275EB229E5DF00040CACD /* AppDelegate.swift */,
-				748275ED229E5DF00040CACD /* ViewController.swift */,
 				748275EF229E5DF00040CACD /* Main.storyboard */,
 				748275F2229E5DF80040CACD /* Assets.xcassets */,
 				748275F4229E5DF80040CACD /* LaunchScreen.storyboard */,
 				748275F7229E5DF90040CACD /* Info.plist */,
 			);
 			path = HeadySwiftExercise;
+			sourceTree = "<group>";
+		};
+		748ABFCF229E89A200F16E14 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				748ABFD9229E8D7700F16E14 /* Category.swift */,
+				748ABFDB229E962B00F16E14 /* Product.swift */,
+				748ABFDD229E969700F16E14 /* Tax.swift */,
+				748ABFDF229E96FD00F16E14 /* Variant.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		748ABFD0229E89A200F16E14 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				748ABFD5229E8BB100F16E14 /* NetworkManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		748ABFD1229E89A200F16E14 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				748ABFD7229E8CC200F16E14 /* AGUtil.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		748ABFD2229E89A200F16E14 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				748ABFD3229E89A200F16E14 /* ViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		BD7D7500655FD33CAAD73F9B /* Frameworks */ = {
@@ -209,8 +258,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				748275EE229E5DF00040CACD /* ViewController.swift in Sources */,
+				748ABFD6229E8BB100F16E14 /* NetworkManager.swift in Sources */,
+				748ABFDA229E8D7700F16E14 /* Category.swift in Sources */,
+				748ABFD8229E8CC200F16E14 /* AGUtil.swift in Sources */,
+				748ABFD4229E89A200F16E14 /* ViewController.swift in Sources */,
+				748ABFDE229E969700F16E14 /* Tax.swift in Sources */,
+				748ABFE0229E96FD00F16E14 /* Variant.swift in Sources */,
 				748275EC229E5DF00040CACD /* AppDelegate.swift in Sources */,
+				748ABFDC229E962B00F16E14 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
