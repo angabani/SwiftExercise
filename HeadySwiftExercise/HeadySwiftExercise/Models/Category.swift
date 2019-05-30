@@ -11,7 +11,7 @@ import Foundation
 struct Category: Codable {
     let id: Int
     let name: String
-    let products: [Product]
+    var products: [Product]
     let child_categories: [Int]
     
     init(dictionary: [String: Any]) throws {
