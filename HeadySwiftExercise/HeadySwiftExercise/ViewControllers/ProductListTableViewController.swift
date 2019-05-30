@@ -83,7 +83,9 @@ class ProductListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let productDetailVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ProductDetailVC") as! ProductDetailViewController
+        productDetailVC.selectedProduct = self.sortedProducts[indexPath.row]
+        self.navigationController?.pushViewController(productDetailVC, animated: true)
     }
     
 }

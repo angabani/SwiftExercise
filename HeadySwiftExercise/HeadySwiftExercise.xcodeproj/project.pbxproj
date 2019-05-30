@@ -22,6 +22,7 @@
 		748ABFE6229FD6B800F16E14 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748ABFE5229FD6B800F16E14 /* CategoryTableViewController.swift */; };
 		748ABFE8229FDB9600F16E14 /* SubCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748ABFE7229FDB9600F16E14 /* SubCategoryTableViewController.swift */; };
 		748ABFEA229FE24600F16E14 /* ProductListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748ABFE9229FE24600F16E14 /* ProductListTableViewController.swift */; };
+		748ABFEC229FF60B00F16E14 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748ABFEB229FF60B00F16E14 /* ProductDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		748ABFE5229FD6B800F16E14 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		748ABFE7229FDB9600F16E14 /* SubCategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryTableViewController.swift; sourceTree = "<group>"; };
 		748ABFE9229FE24600F16E14 /* ProductListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListTableViewController.swift; sourceTree = "<group>"; };
+		748ABFEB229FF60B00F16E14 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		A124DECE67EB861CD21E3992 /* Pods-HeadySwiftExercise.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeadySwiftExercise.release.xcconfig"; path = "Target Support Files/Pods-HeadySwiftExercise/Pods-HeadySwiftExercise.release.xcconfig"; sourceTree = "<group>"; };
 		E4CAD346E455C2517F6F48D2 /* Pods-HeadySwiftExercise.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeadySwiftExercise.debug.xcconfig"; path = "Target Support Files/Pods-HeadySwiftExercise/Pods-HeadySwiftExercise.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,6 +137,7 @@
 				748ABFE5229FD6B800F16E14 /* CategoryTableViewController.swift */,
 				748ABFE7229FDB9600F16E14 /* SubCategoryTableViewController.swift */,
 				748ABFE9229FE24600F16E14 /* ProductListTableViewController.swift */,
+				748ABFEB229FF60B00F16E14 /* ProductDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				748ABFDA229E8D7700F16E14 /* Category.swift in Sources */,
 				748ABFD8229E8CC200F16E14 /* AGUtil.swift in Sources */,
 				748ABFDE229E969700F16E14 /* Tax.swift in Sources */,
+				748ABFEC229FF60B00F16E14 /* ProductDetailViewController.swift in Sources */,
 				748ABFE0229E96FD00F16E14 /* Variant.swift in Sources */,
 				748275EC229E5DF00040CACD /* AppDelegate.swift in Sources */,
 				748ABFE6229FD6B800F16E14 /* CategoryTableViewController.swift in Sources */,

@@ -18,6 +18,17 @@ struct Product: Codable {
     var order_count: Int?
     var shares: Int?
     
+    init(){
+        id = 0
+        name = ""
+        date_added = ""
+        variants = []
+        tax = Tax()
+        view_count = 0
+        order_count = 0
+        shares = 0
+    }
+    
     init(dictionary: [String: Any]) throws {
         self = try JSONDecoder().decode(Product.self, from: JSONSerialization.data(withJSONObject: dictionary))
     }

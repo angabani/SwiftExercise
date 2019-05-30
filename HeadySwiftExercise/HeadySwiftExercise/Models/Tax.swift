@@ -12,6 +12,11 @@ struct Tax: Codable {
     let name: String
     let value: Double
     
+    init(){
+        name = ""
+        value = 0
+    }
+    
     init(dictionary: [String: Any]) throws {
         self = try JSONDecoder().decode(Tax.self, from: JSONSerialization.data(withJSONObject: dictionary))
     }
