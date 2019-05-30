@@ -14,6 +14,13 @@ struct Category: Codable {
     var products: [Product]
     let child_categories: [Int]
     
+    init(){
+        id = 0
+        name = ""
+        products = [Product]()
+        child_categories = []
+    }
+    
     init(dictionary: [String: Any]) throws {
         self = try JSONDecoder().decode(Category.self, from: JSONSerialization.data(withJSONObject: dictionary))
     }

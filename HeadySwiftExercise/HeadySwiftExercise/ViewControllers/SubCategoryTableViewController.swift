@@ -1,5 +1,5 @@
 //
-//  CategoryTableViewController.swift
+//  SubCategoryTableViewController.swift
 //  HeadySwiftExercise
 //
 //  Created by Ankit Patel on 30/05/19.
@@ -8,13 +8,11 @@
 
 import UIKit
 
-class CategoryTableViewController: UITableViewController {
+class SubCategoryTableViewController: UITableViewController {
 
-    static let ALERT_TITLE = "No Categories Found"
-    static let ALERT_NO_CATEGORIES = "There is no categories found at the moment"
-    
-    private var categories = [Category]()
-    private var filteredCategories = [Category]()
+    var categories = [Category]()
+    var filteredCategories = [Category]()
+    var selectedCategory = Category()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,44 +21,10 @@ class CategoryTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        self.title = "Home"
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        //fetch data from server
-        self.fetchData()
-    }
-    
-    private func fetchData(){
-        //make a network call
-        DataManager.shared.fetchCategories { (categories) in
-            if let categories = categories {
-                self.categories = categories
-                self.filteredCategories = categories.filter{ (category) in
-                    if category.child_categories.count > 0 {
-                        return true
-                    }
-                    else{
-                        return false
-                    }
-                }
-            }
-            else{
-                self.showAlert()
-            }
-            self.tableView.reloadData()
-        }
-    }
-    
-    /**
-     Show alert if data not available
-     */
-    private func showAlert() {
-        let alert = UIAlertController(title: CategoryTableViewController.ALERT_TITLE, message: CategoryTableViewController.ALERT_NO_CATEGORIES,         preferredStyle: UIAlertController.Style.alert)
+        self.title = self.selectedCategory.name
         
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: { _ in
-            //Cancel Action
-        }))
-        self.present(alert, animated: true, completion: nil)
     }
 
     // MARK: - Table view data source
@@ -83,8 +47,9 @@ class CategoryTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
         if self.filteredCategories[indexPath.row].child_categories.count > 0 {
-            
+        
             let subCatTVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SubCategoryTVC") as! SubCategoryTableViewController
             subCatTVC.selectedCategory = self.filteredCategories[indexPath.row]
             subCatTVC.categories = self.categories
@@ -104,19 +69,6 @@ class CategoryTableViewController: UITableViewController {
             productListTVC.selectedCategory = self.filteredCategories[indexPath.row]
             self.navigationController?.pushViewController(productListTVC, animated: true)
         }
-    }
-    
-}
-
-class CategoryCell: UITableViewCell{
-    static let CELL_ID: String = "CategoryCell"
-    @IBOutlet var lblCategory: UILabel!
-    
-    var category: Category!
-    
-    func configureCell(category:Category){
-        self.category = category
-        self.lblCategory.text = self.category.name
     }
     
 }
