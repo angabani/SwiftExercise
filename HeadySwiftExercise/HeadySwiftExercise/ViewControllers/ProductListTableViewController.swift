@@ -2,7 +2,7 @@
 //  ProductListTableViewController.swift
 //  HeadySwiftExercise
 //
-//  Created by Ankit Patel on 30/05/19.
+//  Created by Ankit Gabani on 30/05/19.
 //  Copyright © 2019 Ankit Gabani. All rights reserved.
 //
 
@@ -24,6 +24,7 @@ class ProductListTableViewController: UITableViewController {
         
         self.title = self.selectedCategory.name
         
+        //assign products with default sortings
         self.sortedProducts = self.selectedCategory.products
     }
     
@@ -31,36 +32,34 @@ class ProductListTableViewController: UITableViewController {
         let alert = UIAlertController(title: "Sort By", message: "Please Select an Option", preferredStyle: .actionSheet)
         
         alert.addAction(UIAlertAction(title: "Default", style: .default , handler:{ (UIAlertAction)in
-            print("User click Approve Default")
+            //reset sorting options
             self.sortedProducts = self.selectedCategory.products
             self.tableView.reloadData()
         }))
         
         alert.addAction(UIAlertAction(title: "View Count", style: .default , handler:{ (UIAlertAction)in
-            print("User click View Count button")
+            //sort by views count
             self.sortedProducts = self.selectedCategory.products.sorted(by: { $0.view_count ?? 0 > $1.view_count ?? 0 })
             self.tableView.reloadData()
         }))
         
         alert.addAction(UIAlertAction(title: "Order Count", style: .default , handler:{ (UIAlertAction)in
-            print("User click Order Count button")
+            //sort by order count
             self.sortedProducts = self.selectedCategory.products.sorted(by: { $0.order_count ?? 0 > $1.order_count ?? 0 })
             self.tableView.reloadData()
         }))
         
         alert.addAction(UIAlertAction(title: "Share Count", style: .default, handler:{ (UIAlertAction)in
-            print("User click Share Count button")
+            //sort by share count
             self.sortedProducts = self.selectedCategory.products.sorted(by: { $0.shares ?? 0 > $1.shares ?? 0 })
             self.tableView.reloadData()
         }))
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:{ (UIAlertAction)in
-            print("User click Cancel button")
+            //cancel
         }))
         
-        self.present(alert, animated: true, completion: {
-            print("completion block")
-        })
+        self.present(alert, animated: true, completion: nil)
     }
 
     // MARK: - Table view data source
@@ -85,6 +84,7 @@ class ProductListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let productDetailVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ProductDetailVC") as! ProductDetailViewController
         productDetailVC.selectedProduct = self.sortedProducts[indexPath.row]
+        //push product details view
         self.navigationController?.pushViewController(productDetailVC, animated: true)
     }
     

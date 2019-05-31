@@ -2,7 +2,7 @@
 //  DataManager.swift
 //  HeadySwiftExercise
 //
-//  Created by Ankit Patel on 30/05/19.
+//  Created by Ankit Gabani on 30/05/19.
 //  Copyright © 2019 Ankit Gabani. All rights reserved.
 //
 
@@ -15,11 +15,13 @@ class DataManager{
     //do not allow to initialize its object
     private init(){}
 
+    //fetch categories from web service and manage data
     func fetchCategories(completion: @escaping ([Category]?) -> Void) {
         
+        //get call
         NetworkManager.shared.getData(url: DataManager.CATEGORIES_URL) { (data) in
             
-            
+            //received data and check if categories and ranking there in the response
             guard let value = data,
                let data = value["categories"] as? [[String: Any]],
                let rankings = value["rankings"]as? [[String: Any]] else {
@@ -31,72 +33,66 @@ class DataManager{
             
             do {
 
+                //parse categories from the data
                 var categories = try data.compactMap { catDict in
                     return try Category(dictionary: catDict)
                 }
-
-                print(rankings)
                 
+                //define ranking dictionaries for sorting purpose
+                var viewCountDict = [Int:Int]()
+                var orderCountDict = [Int:Int]()
+                var shareCountDict = [Int:Int]()
+                
+                //iterate rankings to prepare ranking dictionary
                 for rank in rankings{
                     switch (rank["ranking"] as? String){
                     case "Most Viewed Products":
-                        guard let products = rank["products"] as? [[String: Any]] else {
+                        guard let products = rank["products"] as? [[String: Int]] else {
                             continue
                         }
-                        for product in products{
-                            for catIndex in 0..<categories.count {
-//                            for category in categories{
-                                for productIndex in 0..<categories[catIndex].products.count {
-                                //for catProduct in category.products{
-                                    if product["id"] as? Int == categories[catIndex].products[productIndex].id{
-                                        categories[catIndex].products[productIndex].view_count = product["view_count"] as? Int ?? 0
-//                                        print("view_count \(categories[catIndex].products[productIndex].view_count ?? 0)")
-                                    }
-                                }
-                                
-                            }
+                        //prepare view count ranking dictionary
+                        viewCountDict = products.reduce([Int: Int]()) { (dict, product) -> [Int: Int] in
+                            var dict = dict
+                            dict[product["id"] ?? 0] = product["view_count"] ?? 0
+                            return dict
                         }
                     case "Most OrdeRed Products":
-                        print("OrdeRed")
-                        guard let products = rank["products"] as? [[String: Any]] else {
+                        guard let products = rank["products"] as? [[String: Int]] else {
                             continue
                         }
-                        for product in products{
-                            for catIndex in 0..<categories.count {
-                                //                            for category in categories{
-                                for productIndex in 0..<categories[catIndex].products.count {
-                                    //for catProduct in category.products{
-                                    if product["id"] as? Int == categories[catIndex].products[productIndex].id{
-                                        categories[catIndex].products[productIndex].order_count = product["order_count"] as? Int ?? 0
-//                                        print("order_count \(categories[catIndex].products[productIndex].order_count ?? 0)")
-                                    }
-                                }
-                                
-                            }
+                        //prepare order count ranking dictionary
+                        orderCountDict = products.reduce([Int: Int]()) { (dict, product) -> [Int: Int] in
+                            var dict = dict
+                            dict[product["id"] ?? 0] = product["order_count"] ?? 0
+                            return dict
                         }
                     case "Most ShaRed Products":
-                        print("ShaRed")
-                        guard let products = rank["products"] as? [[String: Any]] else {
+                        guard let products = rank["products"] as? [[String: Int]] else {
                             continue
                         }
-                        for product in products{
-                            for catIndex in 0..<categories.count {
-                                //                            for category in categories{
-                                for productIndex in 0..<categories[catIndex].products.count {
-                                    //for catProduct in category.products{
-                                    if product["id"] as? Int == categories[catIndex].products[productIndex].id{
-                                        categories[catIndex].products[productIndex].shares = product["shares"] as? Int ?? 0
-//                                        print("shares \(categories[catIndex].products[productIndex].shares ?? 0)")
-                                    }
-                                }
-                                
-                            }
+                        //prepare share count ranking dictionary
+                        shareCountDict = products.reduce([Int: Int]()) { (dict, product) -> [Int: Int] in
+                            var dict = dict
+                            dict[product["id"] ?? 0] = product["shares"] ?? 0
+                            return dict
                         }
                     default:
                         print("Default")
                     }
                 }
-  
+                
+                //iterate categories and products to assign values of views, orders, shares for specific product using product id
+                for catIndex in 0..<categories.count {
+                    for productIndex in 0..<categories[catIndex].products.count {
+                        //assign view count value for specific product with id
+                        categories[catIndex].products[productIndex].view_count = viewCountDict[categories[catIndex].products[productIndex].id]
+                        //assign order count value for specific product with id
+                        categories[catIndex].products[productIndex].order_count = orderCountDict[categories[catIndex].products[productIndex].id]
+                        //assign share count value for specific product with id
+                        categories[catIndex].products[productIndex].shares = shareCountDict[categories[catIndex].products[productIndex].id]
+                    }
+                }
+                //return prepared category data to view controller
                 completion(categories)
             }
             catch {

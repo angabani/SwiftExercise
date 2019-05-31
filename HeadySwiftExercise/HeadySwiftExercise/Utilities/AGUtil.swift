@@ -2,7 +2,7 @@
 //  AGUtil.swift
 //  HeadySwiftExercise
 //
-//  Created by Ankit Patel on 29/05/19.
+//  Created by Ankit Gabani on 29/05/19.
 //  Copyright © 2019 Ankit Gabani. All rights reserved.
 //
 
@@ -14,7 +14,7 @@ class AGUtil{
     
     //save data to user defaults
     class func saveCategoriesToUD(data:[String: Any]){
-        
+        //serialize json to data for storing in user defaults
         if let data = try? JSONSerialization.data(withJSONObject: data, options: []){
             let defaults = UserDefaults.standard
             defaults.set(data, forKey: AGUtil.CATEGORY_USER_DEFAULT_KEY)
@@ -22,7 +22,6 @@ class AGUtil{
         }else{
             print("data invalid")
         }
-        //
     }
     
     //get data from user defaults
@@ -31,7 +30,7 @@ class AGUtil{
         guard let data = defaults.value(forKey: AGUtil.CATEGORY_USER_DEFAULT_KEY) as? Data else {
             return nil
         }
-        
+        //convert data into jsonobject
         guard let categories = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else{
             return nil
         }

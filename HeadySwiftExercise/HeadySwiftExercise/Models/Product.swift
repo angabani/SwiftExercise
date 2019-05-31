@@ -2,7 +2,7 @@
 //  Product.swift
 //  HeadySwiftExercise
 //
-//  Created by Ankit Patel on 29/05/19.
+//  Created by Ankit Gabani on 29/05/19.
 //  Copyright © 2019 Ankit Gabani. All rights reserved.
 //
 
@@ -14,9 +14,9 @@ struct Product: Codable {
     let date_added: String
     let variants: [Variant]
     let tax: Tax
-    var view_count: Int?
-    var order_count: Int?
-    var shares: Int?
+    var view_count: Int? //for sorting purpose
+    var order_count: Int? //for sorting purpose
+    var shares: Int? //for sorting purpose
     
     init(){
         id = 0

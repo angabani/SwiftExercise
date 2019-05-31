@@ -2,7 +2,7 @@
 //  ProductDetailViewController.swift
 //  HeadySwiftExercise
 //
-//  Created by Ankit Patel on 30/05/19.
+//  Created by Ankit Gabani on 30/05/19.
 //  Copyright © 2019 Ankit Gabani. All rights reserved.
 //
 
@@ -13,6 +13,7 @@ class ProductDetailViewController: UIViewController, UICollectionViewDelegate, U
     var selectedProduct = Product()
     
     @IBOutlet var lblName: UILabel!
+    //collection view for variants
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var lblTax: UILabel!
     @IBOutlet var lblCreatedDate: UILabel!
@@ -24,10 +25,13 @@ class ProductDetailViewController: UIViewController, UICollectionViewDelegate, U
         // Do any additional setup after loading the view.
         self.title = self.selectedProduct.name
         
+        //show product name
         self.lblName.text = self.selectedProduct.name
+        
+        //show tax details
         self.lblTax.text = "\(self.selectedProduct.tax.name): \(self.selectedProduct.tax.value)%"
         
-        //date
+        //show date added for product
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         let date = dateFormatter.date(from:self.selectedProduct.date_added)!
@@ -55,7 +59,7 @@ class ProductDetailViewController: UIViewController, UICollectionViewDelegate, U
         let cell = collectionView
             .dequeueReusableCell(withReuseIdentifier: VariantCell.CELL_ID, for: indexPath) as! VariantCell
         
-        // Configure the cell
+        // Configure cell to show variant details
         cell.configureCell(variant: self.selectedProduct.variants[indexPath.row])
         return cell
     }

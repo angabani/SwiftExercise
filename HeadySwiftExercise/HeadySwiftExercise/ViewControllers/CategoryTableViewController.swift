@@ -2,7 +2,7 @@
 //  CategoryTableViewController.swift
 //  HeadySwiftExercise
 //
-//  Created by Ankit Patel on 30/05/19.
+//  Created by Ankit Gabani on 30/05/19.
 //  Copyright © 2019 Ankit Gabani. All rights reserved.
 //
 
@@ -23,9 +23,9 @@ class CategoryTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        self.title = "Home"
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
+        self.title = "Home"
         //fetch data from server
         self.fetchData()
     }
@@ -33,15 +33,11 @@ class CategoryTableViewController: UITableViewController {
     private func fetchData(){
         //make a network call
         DataManager.shared.fetchCategories { (categories) in
-            if let categories = categories {
-                self.categories = categories
+            if let categories = categories { //check if categories null or not
+                self.categories = categories //assign it to main categories property
+                //filter categories and show only parent categories
                 self.filteredCategories = categories.filter{ (category) in
-                    if category.child_categories.count > 0 {
-                        return true
-                    }
-                    else{
-                        return false
-                    }
+                    return category.child_categories.count > 0 ? true : false
                 }
             }
             else{
@@ -83,25 +79,22 @@ class CategoryTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //check if selected category has child categories, if yes - show sub category else show prodoct list
         if self.filteredCategories[indexPath.row].child_categories.count > 0 {
             
             let subCatTVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SubCategoryTVC") as! SubCategoryTableViewController
             subCatTVC.selectedCategory = self.filteredCategories[indexPath.row]
             subCatTVC.categories = self.categories
             subCatTVC.filteredCategories = self.categories.filter{ (category) in
-                if self.filteredCategories[indexPath.row].child_categories.contains(category.id) {
-                    return true
-                }
-                else{
-                    return false
-                }
+                return self.filteredCategories[indexPath.row].child_categories.contains(category.id) ? true : false
             }
-            
+            //push to sub category view
             self.navigationController?.pushViewController(subCatTVC, animated: true)
         }
         else{
             let productListTVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ProductListTVC") as! ProductListTableViewController
             productListTVC.selectedCategory = self.filteredCategories[indexPath.row]
+            //push to product list view
             self.navigationController?.pushViewController(productListTVC, animated: true)
         }
     }

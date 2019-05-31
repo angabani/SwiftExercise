@@ -2,7 +2,7 @@
 //  NetworkManager.swift
 //  HeadySwiftExercise
 //
-//  Created by Ankit Patel on 29/05/19.
+//  Created by Ankit Gabani on 29/05/19.
 //  Copyright © 2019 Ankit Gabani. All rights reserved.
 //
 
@@ -15,12 +15,12 @@ class NetworkManager{
     //do not allow to initialize its object
     private init(){}
     
-    // With Alamofire get list of categories
+    // With Alamofire GET webservice request
     func getData(url:String, completion: @escaping ([String: Any]?) -> Void) {
         
         //check for internet connection if not available show data from local
         if !Connectivity.isConnectedToInternet(){
-            //get data from local
+            //get data from local user defaults
             guard let data = AGUtil.getCategoriesFromUD() else{
                 completion(nil)
                 return
@@ -37,11 +37,12 @@ class NetworkManager{
                 .validate()
                 .responseJSON { response in
                     guard response.result.isSuccess else {
-                        //                    print("Error while fetching categories: \(String(describing: response.result.error)")
+                        print("Error while fetching categories: \(String(describing: response.result.error))")
                         completion(nil)
                         return
                     }
                     
+                    //check if data is available in response
                     guard let data = response.result.value as? [String: Any] else {
                         completion(nil)
                         return
