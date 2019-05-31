@@ -101,9 +101,9 @@ class ProductCell: UITableViewCell{
     func configureCell(product:Product){
         self.product = product
         self.lblProduct.text = self.product.name
-        self.lblViewCount.text = "View Count: \(self.product.view_count ?? 0)"
-        self.lblOrderCount.text = "Order Count: \(self.product.order_count ?? 0)"
-        self.lblShareCount.text = "Share Count: \(self.product.shares ?? 0)"
+        self.lblViewCount.text = "Views: \(self.product.view_count ?? 0)"
+        self.lblOrderCount.text = "Orders: \(self.product.order_count ?? 0)"
+        self.lblShareCount.text = "Shares: \(self.product.shares ?? 0)"
     }
     
 }

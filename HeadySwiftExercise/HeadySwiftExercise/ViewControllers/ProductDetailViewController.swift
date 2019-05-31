@@ -86,7 +86,7 @@ class VariantCell: UICollectionViewCell{
     func configureCell(variant:Variant){
         self.variant = variant
         self.lblColor.text = "Color: \(variant.color)"
-        self.lblSize.text = "Size: \(variant.size ?? 0)"
+        self.lblSize.text = (variant.size != nil) ? "Size: \(variant.size ?? 0) " : ""
         self.lblPrice.text = "Price: \(variant.price)"
     }
     
