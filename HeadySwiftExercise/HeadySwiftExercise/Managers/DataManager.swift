@@ -29,9 +29,6 @@ class DataManager{
                 
             }
             
-            //store data in local
-            AGUtil.saveCategoriesToUD(data: value)
-            
             do {
 
                 var categories = try data.compactMap { catDict in

@@ -42,7 +42,13 @@ class NetworkManager{
                         return
                     }
                     
-                    completion(response.result.value as? [String: Any])
+                    guard let data = response.result.value as? [String: Any] else {
+                        completion(nil)
+                        return
+                    }
+                    //store data in local
+                    AGUtil.saveCategoriesToUD(data: data)
+                    completion(data)
             }
         }
     }
